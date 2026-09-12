@@ -11,9 +11,11 @@
         <li>{{m}}</li>
     {% endfor %}
     </ul>
-    <form method="post">
-    <input type="text" name="message">
-    <button>Надіслати</button>
-    </form>
+<input id="message" type="text">
+<button id="send">Надіслати</button>
+
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>
