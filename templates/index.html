@@ -12,10 +12,14 @@
         <li>{{m}}</li>
     {% endfor %}
     </ul>
+<div class="chat">
+<h1>чат програмістів</h1>
 <div id="messages"></div>
 
 <input id="message" type="text">
 <button id="send">Надіслати</button>
+</div>
+
 
     <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
