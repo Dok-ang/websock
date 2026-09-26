@@ -10,7 +10,7 @@ function showMessage(message) {
     p.textContent=message;
     messages.appendChild(p);
 }
-socket.emit("message","Привіт");
+//socket.emit("message","Привіт");
 socket.on("message",showMessage);
 
 button.onclick = function() {
