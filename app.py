@@ -17,6 +17,7 @@ cursor.close()
 con.commit()
 con.close()
 messages=[]
+connected_users={}
 """@app.route("/",methods=["GET","POST"])
 def index():
     if request.method=="POST":
@@ -38,10 +39,10 @@ def registration():
         con=sqlite3.connect("chat.db")
         cursor=con.cursor()
         cursor.execute("INSERT INTO users (username,password) VALUES (?, ?)",(username,password))
-        cursor.close()
         con.commit()
+        cursor.close()
         con.close()
-        return render_template("login.html")
+        return redirect("/login")
     return render_template("registration.html")
 @app.route("/login",methods=["GET","POST"])
 def login():
@@ -52,8 +53,8 @@ def login():
         cursor=con.cursor()
         cursor.execute("SELECT * FROM users WHERE username=? AND password=?",(username,password))
         user=cursor.fetchall()
-        cursor.close()
         con.commit()
+        cursor.close()
         con.close()
         if user:
             session["username"]=user[0][1]
@@ -61,6 +62,16 @@ def login():
     return render_template("login.html")
 @socketio.on("message")
 def handle_message(message):
-    print("Отримано:",message)
+    print("Отримано:",message["username"],message["text"])
     socketio.emit("message",message)
+@socketio.on("connect")
+def handle_connect():
+    username=session.get("session")
+    if username:
+        connected_users[request.sid]=username
+@socketio.on("disconect")
+def handle_disconect():
+    if request.sid in connected_users:
+        del connected_users[request.sid]
+
 socketio.run(app,debug=True,host="0.0.0.0",port=5000)

@@ -16,5 +16,26 @@ body {
     width: 800px;
     border: 1px solid #bbc9d5;
     display: block;
+    overflow-y: scroll;
     
 }
+
+.chat-online {
+    display: flex;
+    gap: 20px;
+}
+
+.online-users {
+    width: 200px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.online-users h2 {
+    margin-top: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #444;
+}
+

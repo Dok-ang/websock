@@ -12,16 +12,26 @@
         <li>{{m}}</li>
     {% endfor %}
     </ul>
-<div class="chat">
-<h1>чат програмістів</h1>
-<p>Ви: {{username}}</p>
-<div id="messages"></div>
 
-<input id="message" type="text">
-<button id="send">Надіслати</button>
+<div class="chat-online">
+    <div class="chat">
+        <h1>чат програмістів</h1>
+        <p>Ви: {{username}}</p>
+        <div id="messages"></div>
+
+        <input id="message" type="text">
+        <button id="send">Надіслати</button>
+    </div>
+
+    <div class="online-users">
+        <h2>В мережі:</h2>
+        <div id="users"></div>
+    </div>
 </div>
 
 
+
+    <script>let username="{{username}}"</script>
     <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

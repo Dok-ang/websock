@@ -2,11 +2,13 @@ let socket=io();
 let input = document.getElementById("message");
 let button = document.getElementById("send");
 let messages = document.getElementById("messages");
+let userList = document.getElementById("users");
+
 function showMessage(message) {
     //alert(message)
     console.log(message);
     let p=document.createElement("p");
-    p.textContent=message;
+    p.textContent=message.username+": "+message.text;
     messages.appendChild(p);
 }
 //socket.emit("message","Привіт");
@@ -23,3 +25,4 @@ input.onkeydown = function() {
     input.value = "";
     }
 };
+
