@@ -31,6 +31,11 @@ def index():
     if not username:
         return redirect("/login")
     return render_template("index.html",username=username)
+
+@app.route("/aaa")
+def aaa():
+    return render_template("aaa.html")
+
 @app.route("/registration",methods=["GET","POST"])
 def registration():
     if request.method=="POST":

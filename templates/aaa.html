@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS</title>
+</head>
+<body>
+    <h1>Пошук. Введи щось</h1>
+    <form action="" >
+        <input name="message" type="text" placeholder="введи повідомлення">
+        <button onclick="alert('Активно шукаємо!!!');">Пошук</button>
+        <h2>Результат пошуку:</h2>
+        <div id="result"></div>
+    </form>
+    <script>
+        let params = new URLSearchParams(location.search);
+        let message = params.get("message");
+        if (message) {
+            //пошук
+            //результат
+            document.getElementById("result").innerHTML="<p>За запитом </p>"+message+"<p>нічого не знайдено</p> "+'<img src="https://rinet.rv.ua/wp-content/uploads/2015/10/google-logo.jpg" alt="картинка пошуку">';
+        }
+    </script>
+</body>
+</html>
