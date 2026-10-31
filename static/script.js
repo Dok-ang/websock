@@ -4,6 +4,7 @@ let button = document.getElementById("send");
 let messages = document.getElementById("messages");
 let userList = document.getElementById("users");
 
+
 function showMessage(message) {
     //alert(message)
     console.log(message);

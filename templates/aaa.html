@@ -8,19 +8,26 @@
 <body>
     <h1>Пошук. Введи щось</h1>
     <form action="" >
-        <input name="message" type="text" placeholder="введи повідомлення">
+        <input name="me" type="text" placeholder="введи повідомлення">
         <button onclick="alert('Активно шукаємо!!!');">Пошук</button>
         <h2>Результат пошуку:</h2>
         <div id="result"></div>
     </form>
+    <script src="data:text/javascript,alert('qqqq')"></script>
     <script>
         let params = new URLSearchParams(location.search);
-        let message = params.get("message");
-        if (message) {
+        let message = params.get("me").value;
+
+       // if (message) {
             //пошук
             //результат
-            document.getElementById("result").innerHTML="<p>За запитом </p>"+message+"<p>нічого не знайдено</p> "+'<img src="https://rinet.rv.ua/wp-content/uploads/2015/10/google-logo.jpg" alt="картинка пошуку">';
+       //     document.getElementById("result").innerHTML="<p>За запитом </p>"+message+"<p>нічого не знайдено</p> "+'<img src="https://rinet.rv.ua/wp-content/uploads/2015/10/google-logo.jpg" alt="картинка пошуку">';
+       // }
+        function mytimer(time) {
+            alert("  ff  "); //"); alert("
         }
+        mytimer(message);
+
     </script>
 </body>
 </html>
